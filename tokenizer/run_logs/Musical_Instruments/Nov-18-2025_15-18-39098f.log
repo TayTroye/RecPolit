@@ -1,0 +1,957 @@
+Tue 18 Nov 2025 15:18:00 INFO  Device: cuda
+Tue 18 Nov 2025 15:18:00 INFO  Config: {'data_dir': '../datasets/Musical_Instruments', 'log_dir': 'run_logs/', 'rand_seed': 2024, 'reproducibility': True, 'lr': 0.001, 'learner': 'adagrad', 'scheduler_type': 'constant', 'weight_decay': 0.0, 'warmup_steps': 0, 'batch_size': 2048, 'epochs': 10000, 'verbose_step': 1, 'verbose_delay': 9900, 'save_limit': 100, 'ckpt_name': 'rqvae', 'sent_emb_model': '/home/hadoop-ba-dealrank/VSCodeProjects/oukesha_oukesha/github.com/RUCAIBox/MTGRec.git/huggingface.co/sentence-transformers/sentence-t5-base', 'sent_emb_batch_size': 512, 'sent_emb_dim': 768, 'sent_emb_pca': 128, 'n_codebooks': 3, 'codebook_size': 256, 'hidden_sizes': [2048, 1024, 512, 256, 128], 'dropout': 0.0, 'beta': 0.25, 'vq_type': 'ema', 'run_local_time': 'Nov-18-2025_15-18', 'dataset': 'Musical_Instruments', 'device': device(type='cuda'), 'use_ddp': False, 'accelerator': <accelerate.accelerator.Accelerator object at 0x7f701d3c45e0>}
+Tue 18 Nov 2025 15:18:00 INFO  [TOKENIZER] Loading sentence embeddings from ../datasets/Musical_Instruments/sentence-t5-base.sent_emb...
+Tue 18 Nov 2025 15:18:00 INFO  [TOKENIZER] Sentence embeddings shape: (24587, 128)
+Tue 18 Nov 2025 15:18:01 INFO  [TOKENIZER] Sentence embeddings shape after filtering: (24556, 128)
+Tue 18 Nov 2025 15:18:01 INFO  RQVAEModel(
+  (encoder): MLP(
+    (mlp): Sequential(
+      (0): Dropout(p=0.0, inplace=False)
+      (1): Linear(in_features=128, out_features=2048, bias=True)
+      (2): ReLU()
+      (3): Dropout(p=0.0, inplace=False)
+      (4): Linear(in_features=2048, out_features=1024, bias=True)
+      (5): ReLU()
+      (6): Dropout(p=0.0, inplace=False)
+      (7): Linear(in_features=1024, out_features=512, bias=True)
+      (8): ReLU()
+      (9): Dropout(p=0.0, inplace=False)
+      (10): Linear(in_features=512, out_features=256, bias=True)
+      (11): ReLU()
+      (12): Dropout(p=0.0, inplace=False)
+      (13): Linear(in_features=256, out_features=128, bias=True)
+    )
+  )
+  (quantization_layer): RQLayer(
+    (quantization_layers): ModuleList(
+      (0-2): 3 x EMAVQLayer()
+    )
+  )
+  (decoder): MLP(
+    (mlp): Sequential(
+      (0): Dropout(p=0.0, inplace=False)
+      (1): Linear(in_features=128, out_features=256, bias=True)
+      (2): ReLU()
+      (3): Dropout(p=0.0, inplace=False)
+      (4): Linear(in_features=256, out_features=512, bias=True)
+      (5): ReLU()
+      (6): Dropout(p=0.0, inplace=False)
+      (7): Linear(in_features=512, out_features=1024, bias=True)
+      (8): ReLU()
+      (9): Dropout(p=0.0, inplace=False)
+      (10): Linear(in_features=1024, out_features=2048, bias=True)
+      (11): ReLU()
+      (12): Dropout(p=0.0, inplace=False)
+      (13): Linear(in_features=2048, out_features=128, bias=True)
+    )
+  )
+)
+Tue 18 Nov 2025 16:15:15 INFO  [TOKENIZER] training
+	Epoch [9900/10000]
+	  Training lr: [0.001]
+	  Training loss: 0.46424663811922073
+	  Unused codebook:114.91666666666667
+	  Recosntruction loss: 0.2726109226544698
+	  Quantization loss: 0.1916357142229875
+	  Collision Rate: 0.057745561166313734
+
+Tue 18 Nov 2025 16:15:16 INFO  [TOKENIZER] training
+	Epoch [9901/10000]
+	  Training lr: [0.001]
+	  Training loss: 0.4643146296342214
+	  Unused codebook:115.66666666666667
+	  Recosntruction loss: 0.2726751019557317
+	  Quantization loss: 0.19163952519496283
+	  Collision Rate: 0.05823424010425151
+
+Tue 18 Nov 2025 16:15:16 INFO  [TOKENIZER] training
+	Epoch [9902/10000]
+	  Training lr: [0.001]
+	  Training loss: 0.4641587783892949
+	  Unused codebook:115.58333333333333
+	  Recosntruction loss: 0.27257533371448517
+	  Quantization loss: 0.19158343970775604
+	  Collision Rate: 0.058356409838735954
+
+Tue 18 Nov 2025 16:15:17 INFO  [TOKENIZER] training
+	Epoch [9903/10000]
+	  Training lr: [0.001]
+	  Training loss: 0.4641776631275813
+	  Unused codebook:115.5
+	  Recosntruction loss: 0.27257722864548367
+	  Quantization loss: 0.19160043572386107
+	  Collision Rate: 0.05794917739045447
+
+Tue 18 Nov 2025 16:15:17 INFO  [TOKENIZER] training
+	Epoch [9904/10000]
+	  Training lr: [0.001]
+	  Training loss: 0.46412429461876553
+	  Unused codebook:115.33333333333333
+	  Recosntruction loss: 0.27251334488391876
+	  Quantization loss: 0.19161095097661018
+	  Collision Rate: 0.058112070369767066
+
+Tue 18 Nov 2025 16:15:18 INFO  [TOKENIZER] training
+	Epoch [9905/10000]
+	  Training lr: [0.001]
+	  Training loss: 0.46419019748767215
+	  Unused codebook:115.58333333333333
+	  Recosntruction loss: 0.2725529968738556
+	  Quantization loss: 0.1916372006138166
+	  Collision Rate: 0.05827496334907965
+
+Tue 18 Nov 2025 16:15:18 INFO  [TOKENIZER] training
+	Epoch [9906/10000]
+	  Training lr: [0.001]
+	  Training loss: 0.4642025555173556
+	  Unused codebook:114.75
+	  Recosntruction loss: 0.27251170575618744
+	  Quantization loss: 0.19169084851940474
+	  Collision Rate: 0.058030623880110765
+
+Tue 18 Nov 2025 16:15:19 INFO  [TOKENIZER] training
+	Epoch [9907/10000]
+	  Training lr: [0.001]
+	  Training loss: 0.46412908534208935
+	  Unused codebook:115.5
+	  Recosntruction loss: 0.27244559675455093
+	  Quantization loss: 0.19168348610401154
+	  Collision Rate: 0.058112070369767066
+
+Tue 18 Nov 2025 16:15:19 INFO  [TOKENIZER] training
+	Epoch [9908/10000]
+	  Training lr: [0.001]
+	  Training loss: 0.464191993077596
+	  Unused codebook:114.83333333333333
+	  Recosntruction loss: 0.2725372662146886
+	  Quantization loss: 0.19165472437938055
+	  Collision Rate: 0.058112070369767066
+
+Tue 18 Nov 2025 16:15:20 INFO  [TOKENIZER] training
+	Epoch [9909/10000]
+	  Training lr: [0.001]
+	  Training loss: 0.46424994617700577
+	  Unused codebook:115.08333333333333
+	  Recosntruction loss: 0.2725290233890216
+	  Quantization loss: 0.19172092154622078
+	  Collision Rate: 0.058071347124938916
+
+Tue 18 Nov 2025 16:15:20 INFO  [TOKENIZER] training
+	Epoch [9910/10000]
+	  Training lr: [0.001]
+	  Training loss: 0.46421728779872257
+	  Unused codebook:115.33333333333333
+	  Recosntruction loss: 0.2725518097480138
+	  Quantization loss: 0.19166547680894533
+	  Collision Rate: 0.05843785632839225
+
+Tue 18 Nov 2025 16:15:21 INFO  [TOKENIZER] training
+	Epoch [9911/10000]
+	  Training lr: [0.001]
+	  Training loss: 0.46427581707636517
+	  Unused codebook:115.16666666666667
+	  Recosntruction loss: 0.27258317917585373
+	  Quantization loss: 0.19169263417522112
+	  Collision Rate: 0.05888581202150187
+
+Tue 18 Nov 2025 16:15:21 INFO  [TOKENIZER] training
+	Epoch [9912/10000]
+	  Training lr: [0.001]
+	  Training loss: 0.46411246061325073
+	  Unused codebook:115.33333333333333
+	  Recosntruction loss: 0.2724375401933988
+	  Quantization loss: 0.1916749229033788
+	  Collision Rate: 0.05884508877667372
+
+Tue 18 Nov 2025 16:15:22 INFO  [TOKENIZER] training
+	Epoch [9913/10000]
+	  Training lr: [0.001]
+	  Training loss: 0.464033971230189
+	  Unused codebook:115.16666666666667
+	  Recosntruction loss: 0.27238358557224274
+	  Quantization loss: 0.19165038441618285
+	  Collision Rate: 0.05823424010425151
+
+Tue 18 Nov 2025 16:15:22 INFO  [TOKENIZER] training
+	Epoch [9914/10000]
+	  Training lr: [0.001]
+	  Training loss: 0.46409258991479874
+	  Unused codebook:115.5
+	  Recosntruction loss: 0.2724350516994794
+	  Quantization loss: 0.19165753200650215
+	  Collision Rate: 0.0583156865939078
+
+Tue 18 Nov 2025 16:15:23 INFO  [TOKENIZER] training
+	Epoch [9915/10000]
+	  Training lr: [0.001]
+	  Training loss: 0.4643004834651947
+	  Unused codebook:115.0
+	  Recosntruction loss: 0.2726011996467908
+	  Quantization loss: 0.19169928754369417
+	  Collision Rate: 0.0583971330835641
+
+Tue 18 Nov 2025 16:15:23 INFO  [TOKENIZER] training
+	Epoch [9916/10000]
+	  Training lr: [0.001]
+	  Training loss: 0.46396831919749576
+	  Unused codebook:115.33333333333333
+	  Recosntruction loss: 0.27234508842229843
+	  Quantization loss: 0.19162322704990706
+	  Collision Rate: 0.058030623880110765
+
+Tue 18 Nov 2025 16:15:24 INFO  [TOKENIZER] training
+	Epoch [9917/10000]
+	  Training lr: [0.001]
+	  Training loss: 0.4639664838711421
+	  Unused codebook:115.0
+	  Recosntruction loss: 0.2723871221144994
+	  Quantization loss: 0.19157936175664267
+	  Collision Rate: 0.05823424010425151
+
+Tue 18 Nov 2025 16:15:25 INFO  [TOKENIZER] training
+	Epoch [9918/10000]
+	  Training lr: [0.001]
+	  Training loss: 0.46393883725007373
+	  Unused codebook:115.33333333333333
+	  Recosntruction loss: 0.27231993277867633
+	  Quantization loss: 0.19161890322963396
+	  Collision Rate: 0.05815279361459521
+
+Tue 18 Nov 2025 16:15:25 INFO  [TOKENIZER] training
+	Epoch [9919/10000]
+	  Training lr: [0.001]
+	  Training loss: 0.4639357253909111
+	  Unused codebook:115.5
+	  Recosntruction loss: 0.2723383978009224
+	  Quantization loss: 0.1915973238646984
+	  Collision Rate: 0.0584785795732204
+
+Tue 18 Nov 2025 16:15:26 INFO  [TOKENIZER] training
+	Epoch [9920/10000]
+	  Training lr: [0.001]
+	  Training loss: 0.46395113319158554
+	  Unused codebook:115.5
+	  Recosntruction loss: 0.2723224585254987
+	  Quantization loss: 0.19162867466608682
+	  Collision Rate: 0.05819351685942336
+
+Tue 18 Nov 2025 16:15:26 INFO  [TOKENIZER] training
+	Epoch [9921/10000]
+	  Training lr: [0.001]
+	  Training loss: 0.4642207399010658
+	  Unused codebook:115.75
+	  Recosntruction loss: 0.2725502550601959
+	  Quantization loss: 0.1916704848408699
+	  Collision Rate: 0.05798990063528262
+
+Tue 18 Nov 2025 16:15:27 INFO  [TOKENIZER] training
+	Epoch [9922/10000]
+	  Training lr: [0.001]
+	  Training loss: 0.46419504284858704
+	  Unused codebook:116.08333333333333
+	  Recosntruction loss: 0.27260802686214447
+	  Quantization loss: 0.19158701598644257
+	  Collision Rate: 0.05823424010425151
+
+Tue 18 Nov 2025 16:15:27 INFO  [TOKENIZER] training
+	Epoch [9923/10000]
+	  Training lr: [0.001]
+	  Training loss: 0.46417034914096195
+	  Unused codebook:114.91666666666667
+	  Recosntruction loss: 0.27252960950136185
+	  Quantization loss: 0.19164074088136354
+	  Collision Rate: 0.05819351685942336
+
+Tue 18 Nov 2025 16:15:28 INFO  [TOKENIZER] training
+	Epoch [9924/10000]
+	  Training lr: [0.001]
+	  Training loss: 0.46427258600791294
+	  Unused codebook:115.5
+	  Recosntruction loss: 0.27261539300282794
+	  Quantization loss: 0.19165719176332155
+	  Collision Rate: 0.0584785795732204
+
+Tue 18 Nov 2025 16:15:28 INFO  [TOKENIZER] training
+	Epoch [9925/10000]
+	  Training lr: [0.001]
+	  Training loss: 0.4640543560187022
+	  Unused codebook:115.58333333333333
+	  Recosntruction loss: 0.2725292692581813
+	  Quantization loss: 0.1915250817934672
+	  Collision Rate: 0.05815279361459521
+
+Tue 18 Nov 2025 16:15:28 INFO  [TOKENIZER] training
+	Epoch [9926/10000]
+	  Training lr: [0.001]
+	  Training loss: 0.46401331822077435
+	  Unused codebook:115.58333333333333
+	  Recosntruction loss: 0.27242470035950345
+	  Quantization loss: 0.1915886141359806
+	  Collision Rate: 0.0583156865939078
+
+Tue 18 Nov 2025 16:15:29 INFO  [TOKENIZER] training
+	Epoch [9927/10000]
+	  Training lr: [0.001]
+	  Training loss: 0.46409254024426144
+	  Unused codebook:115.33333333333333
+	  Recosntruction loss: 0.27246271073818207
+	  Quantization loss: 0.19162982826431593
+	  Collision Rate: 0.058071347124938916
+
+Tue 18 Nov 2025 16:15:29 INFO  [TOKENIZER] training
+	Epoch [9928/10000]
+	  Training lr: [0.001]
+	  Training loss: 0.4640040670831998
+	  Unused codebook:114.91666666666667
+	  Recosntruction loss: 0.272372101744016
+	  Quantization loss: 0.19163196285565695
+	  Collision Rate: 0.05790845414562632
+
+Tue 18 Nov 2025 16:15:30 INFO  [TOKENIZER] training
+	Epoch [9929/10000]
+	  Training lr: [0.001]
+	  Training loss: 0.4640899871786435
+	  Unused codebook:115.66666666666667
+	  Recosntruction loss: 0.27252363165219623
+	  Quantization loss: 0.19156634931763014
+	  Collision Rate: 0.05823424010425151
+
+Tue 18 Nov 2025 16:15:30 INFO  [TOKENIZER] training
+	Epoch [9930/10000]
+	  Training lr: [0.001]
+	  Training loss: 0.4641292293866475
+	  Unused codebook:114.83333333333333
+	  Recosntruction loss: 0.2724946265419324
+	  Quantization loss: 0.19163460160295168
+	  Collision Rate: 0.058071347124938916
+
+Tue 18 Nov 2025 16:15:31 INFO  [TOKENIZER] training
+	Epoch [9931/10000]
+	  Training lr: [0.001]
+	  Training loss: 0.46408001333475113
+	  Unused codebook:115.5
+	  Recosntruction loss: 0.27241162955760956
+	  Quantization loss: 0.19166838005185127
+	  Collision Rate: 0.057745561166313734
+
+Tue 18 Nov 2025 16:15:31 INFO  [TOKENIZER] training
+	Epoch [9932/10000]
+	  Training lr: [0.001]
+	  Training loss: 0.46395652492841083
+	  Unused codebook:115.08333333333333
+	  Recosntruction loss: 0.27232665568590164
+	  Quantization loss: 0.19162986427545547
+	  Collision Rate: 0.05794917739045447
+
+Tue 18 Nov 2025 16:15:32 INFO  [TOKENIZER] training
+	Epoch [9933/10000]
+	  Training lr: [0.001]
+	  Training loss: 0.4641124755144119
+	  Unused codebook:115.0
+	  Recosntruction loss: 0.2724272385239601
+	  Quantization loss: 0.19168523450692496
+	  Collision Rate: 0.05819351685942336
+
+Tue 18 Nov 2025 16:15:33 INFO  [TOKENIZER] training
+	Epoch [9934/10000]
+	  Training lr: [0.001]
+	  Training loss: 0.46415093541145325
+	  Unused codebook:114.83333333333333
+	  Recosntruction loss: 0.27246128519376117
+	  Quantization loss: 0.19168964897592863
+	  Collision Rate: 0.058071347124938916
+
+Tue 18 Nov 2025 16:15:33 INFO  [TOKENIZER] training
+	Epoch [9935/10000]
+	  Training lr: [0.001]
+	  Training loss: 0.46410364657640457
+	  Unused codebook:115.41666666666667
+	  Recosntruction loss: 0.2723904798428218
+	  Quantization loss: 0.19171316549181938
+	  Collision Rate: 0.05856002606287669
+
+Tue 18 Nov 2025 16:15:33 INFO  [TOKENIZER] training
+	Epoch [9936/10000]
+	  Training lr: [0.001]
+	  Training loss: 0.46414019415775937
+	  Unused codebook:115.58333333333333
+	  Recosntruction loss: 0.27242709696292877
+	  Quantization loss: 0.19171309595306715
+	  Collision Rate: 0.05827496334907965
+
+Tue 18 Nov 2025 16:15:34 INFO  [TOKENIZER] training
+	Epoch [9937/10000]
+	  Training lr: [0.001]
+	  Training loss: 0.4640663092335065
+	  Unused codebook:115.33333333333333
+	  Recosntruction loss: 0.27232446769873303
+	  Quantization loss: 0.19174184029301009
+	  Collision Rate: 0.057745561166313734
+
+Tue 18 Nov 2025 16:15:34 INFO  [TOKENIZER] training
+	Epoch [9938/10000]
+	  Training lr: [0.001]
+	  Training loss: 0.46414097398519516
+	  Unused codebook:115.16666666666667
+	  Recosntruction loss: 0.27235790093739826
+	  Quantization loss: 0.19178306932250658
+	  Collision Rate: 0.05798990063528262
+
+Tue 18 Nov 2025 16:15:35 INFO  [TOKENIZER] training
+	Epoch [9939/10000]
+	  Training lr: [0.001]
+	  Training loss: 0.4640185038248698
+	  Unused codebook:115.83333333333333
+	  Recosntruction loss: 0.2722651685277621
+	  Quantization loss: 0.19175333405534425
+	  Collision Rate: 0.058356409838735954
+
+Tue 18 Nov 2025 16:15:35 INFO  [TOKENIZER] training
+	Epoch [9940/10000]
+	  Training lr: [0.001]
+	  Training loss: 0.4640198176105817
+	  Unused codebook:115.41666666666667
+	  Recosntruction loss: 0.2722390467921893
+	  Quantization loss: 0.19178076833486557
+	  Collision Rate: 0.058030623880110765
+
+Tue 18 Nov 2025 16:15:36 INFO  [TOKENIZER] training
+	Epoch [9941/10000]
+	  Training lr: [0.001]
+	  Training loss: 0.4640949492653211
+	  Unused codebook:115.33333333333333
+	  Recosntruction loss: 0.27226447810729343
+	  Quantization loss: 0.1918304699162642
+	  Collision Rate: 0.05823424010425151
+
+Tue 18 Nov 2025 16:15:36 INFO  [TOKENIZER] training
+	Epoch [9942/10000]
+	  Training lr: [0.001]
+	  Training loss: 0.46399498730897903
+	  Unused codebook:115.66666666666667
+	  Recosntruction loss: 0.2722281987468402
+	  Quantization loss: 0.19176678732037544
+	  Collision Rate: 0.059293044469783354
+
+Tue 18 Nov 2025 16:15:37 INFO  [TOKENIZER] training
+	Epoch [9943/10000]
+	  Training lr: [0.001]
+	  Training loss: 0.4641936843593915
+	  Unused codebook:115.25
+	  Recosntruction loss: 0.27233362197875977
+	  Quantization loss: 0.1918600598971049
+	  Collision Rate: 0.0584785795732204
+
+Tue 18 Nov 2025 16:15:37 INFO  [TOKENIZER] training
+	Epoch [9944/10000]
+	  Training lr: [0.001]
+	  Training loss: 0.46399225294589996
+	  Unused codebook:115.25
+	  Recosntruction loss: 0.2722064604361852
+	  Quantization loss: 0.19178578878442445
+	  Collision Rate: 0.058967258511158166
+
+Tue 18 Nov 2025 16:15:38 INFO  [TOKENIZER] training
+	Epoch [9945/10000]
+	  Training lr: [0.001]
+	  Training loss: 0.46414268265167874
+	  Unused codebook:115.66666666666667
+	  Recosntruction loss: 0.2723087891936302
+	  Quantization loss: 0.19183389097452164
+	  Collision Rate: 0.05917087473529891
+
+Tue 18 Nov 2025 16:15:38 INFO  [TOKENIZER] training
+	Epoch [9946/10000]
+	  Training lr: [0.001]
+	  Training loss: 0.4641662115852038
+	  Unused codebook:115.91666666666667
+	  Recosntruction loss: 0.2723279396692912
+	  Quantization loss: 0.19183826819062233
+	  Collision Rate: 0.05843785632839225
+
+Tue 18 Nov 2025 16:15:39 INFO  [TOKENIZER] training
+	Epoch [9947/10000]
+	  Training lr: [0.001]
+	  Training loss: 0.46411727120478946
+	  Unused codebook:115.33333333333333
+	  Recosntruction loss: 0.27230919400850934
+	  Quantization loss: 0.19180807719628015
+	  Collision Rate: 0.0594152142042678
+
+Tue 18 Nov 2025 16:15:39 INFO  [TOKENIZER] training
+	Epoch [9948/10000]
+	  Training lr: [0.001]
+	  Training loss: 0.4640788435935974
+	  Unused codebook:115.33333333333333
+	  Recosntruction loss: 0.27228987216949463
+	  Quantization loss: 0.19178896769881248
+	  Collision Rate: 0.059252321224955204
+
+Tue 18 Nov 2025 16:15:40 INFO  [TOKENIZER] training
+	Epoch [9949/10000]
+	  Training lr: [0.001]
+	  Training loss: 0.4639970088998477
+	  Unused codebook:115.16666666666667
+	  Recosntruction loss: 0.27221959084272385
+	  Quantization loss: 0.19177741557359695
+	  Collision Rate: 0.058967258511158166
+
+Tue 18 Nov 2025 16:15:40 INFO  [TOKENIZER] training
+	Epoch [9950/10000]
+	  Training lr: [0.001]
+	  Training loss: 0.4640249088406563
+	  Unused codebook:115.0
+	  Recosntruction loss: 0.27218881001075107
+	  Quantization loss: 0.19183609634637833
+	  Collision Rate: 0.05913015149047076
+
+Tue 18 Nov 2025 16:15:40 INFO  [TOKENIZER] training
+	Epoch [9951/10000]
+	  Training lr: [0.001]
+	  Training loss: 0.4638700857758522
+	  Unused codebook:114.91666666666667
+	  Recosntruction loss: 0.272120068470637
+	  Quantization loss: 0.1917500135799249
+	  Collision Rate: 0.0594152142042678
+
+Tue 18 Nov 2025 16:15:41 INFO  [TOKENIZER] training
+	Epoch [9952/10000]
+	  Training lr: [0.001]
+	  Training loss: 0.4639814868569374
+	  Unused codebook:115.0
+	  Recosntruction loss: 0.2722058470050494
+	  Quantization loss: 0.19177563736836115
+	  Collision Rate: 0.059252321224955204
+
+Tue 18 Nov 2025 16:15:42 INFO  [TOKENIZER] training
+	Epoch [9953/10000]
+	  Training lr: [0.001]
+	  Training loss: 0.463848074277242
+	  Unused codebook:115.0
+	  Recosntruction loss: 0.2721078619360924
+	  Quantization loss: 0.19174021234114966
+	  Collision Rate: 0.059211597980127054
+
+Tue 18 Nov 2025 16:15:42 INFO  [TOKENIZER] training
+	Epoch [9954/10000]
+	  Training lr: [0.001]
+	  Training loss: 0.4637710203727086
+	  Unused codebook:115.41666666666667
+	  Recosntruction loss: 0.27203604330619174
+	  Quantization loss: 0.19173497334122658
+	  Collision Rate: 0.06039257208014335
+
+Tue 18 Nov 2025 16:15:43 INFO  [TOKENIZER] training
+	Epoch [9955/10000]
+	  Training lr: [0.001]
+	  Training loss: 0.46386483311653137
+	  Unused codebook:115.41666666666667
+	  Recosntruction loss: 0.27209485073884326
+	  Quantization loss: 0.19176998113592467
+	  Collision Rate: 0.06010750936634631
+
+Tue 18 Nov 2025 16:15:43 INFO  [TOKENIZER] training
+	Epoch [9956/10000]
+	  Training lr: [0.001]
+	  Training loss: 0.4639088089267413
+	  Unused codebook:116.0
+	  Recosntruction loss: 0.2721547931432724
+	  Quantization loss: 0.19175401454170546
+	  Collision Rate: 0.06096269750773742
+
+Tue 18 Nov 2025 16:15:44 INFO  [TOKENIZER] training
+	Epoch [9957/10000]
+	  Training lr: [0.001]
+	  Training loss: 0.46380167951186496
+	  Unused codebook:114.58333333333333
+	  Recosntruction loss: 0.2720440824826558
+	  Quantization loss: 0.191757599512736
+	  Collision Rate: 0.05986316989737742
+
+Tue 18 Nov 2025 16:15:44 INFO  [TOKENIZER] training
+	Epoch [9958/10000]
+	  Training lr: [0.001]
+	  Training loss: 0.4639616012573242
+	  Unused codebook:114.83333333333333
+	  Recosntruction loss: 0.27217186987400055
+	  Quantization loss: 0.19178973138332367
+	  Collision Rate: 0.06014823261117446
+
+Tue 18 Nov 2025 16:15:45 INFO  [TOKENIZER] training
+	Epoch [9959/10000]
+	  Training lr: [0.001]
+	  Training loss: 0.46402380367120105
+	  Unused codebook:114.91666666666667
+	  Recosntruction loss: 0.2722989519437154
+	  Quantization loss: 0.1917248455186685
+	  Collision Rate: 0.060188955856002604
+
+Tue 18 Nov 2025 16:15:45 INFO  [TOKENIZER] training
+	Epoch [9960/10000]
+	  Training lr: [0.001]
+	  Training loss: 0.4639105374614398
+	  Unused codebook:114.25
+	  Recosntruction loss: 0.27216527611017227
+	  Quantization loss: 0.19174525638421377
+	  Collision Rate: 0.060799804528424824
+
+Tue 18 Nov 2025 16:15:46 INFO  [TOKENIZER] training
+	Epoch [9961/10000]
+	  Training lr: [0.001]
+	  Training loss: 0.4638520081837972
+	  Unused codebook:115.08333333333333
+	  Recosntruction loss: 0.2720747763911883
+	  Quantization loss: 0.19177722930908203
+	  Collision Rate: 0.060555465059455936
+
+Tue 18 Nov 2025 16:15:46 INFO  [TOKENIZER] training
+	Epoch [9962/10000]
+	  Training lr: [0.001]
+	  Training loss: 0.4639555513858795
+	  Unused codebook:115.66666666666667
+	  Recosntruction loss: 0.272169791162014
+	  Quantization loss: 0.1917857564985752
+	  Collision Rate: 0.060596188304284086
+
+Tue 18 Nov 2025 16:15:46 INFO  [TOKENIZER] training
+	Epoch [9963/10000]
+	  Training lr: [0.001]
+	  Training loss: 0.46386591096719104
+	  Unused codebook:115.0
+	  Recosntruction loss: 0.27209944774707157
+	  Quantization loss: 0.19176646073659262
+	  Collision Rate: 0.06039257208014335
+
+Tue 18 Nov 2025 16:15:47 INFO  [TOKENIZER] training
+	Epoch [9964/10000]
+	  Training lr: [0.001]
+	  Training loss: 0.4638563121358554
+	  Unused codebook:114.83333333333333
+	  Recosntruction loss: 0.2720935270190239
+	  Quantization loss: 0.19176278014977774
+	  Collision Rate: 0.06075908128359668
+
+Tue 18 Nov 2025 16:15:47 INFO  [TOKENIZER] training
+	Epoch [9965/10000]
+	  Training lr: [0.001]
+	  Training loss: 0.4639473805824916
+	  Unused codebook:114.91666666666667
+	  Recosntruction loss: 0.2721373786528905
+	  Quantization loss: 0.1918099969625473
+	  Collision Rate: 0.06067763479394038
+
+Tue 18 Nov 2025 16:15:48 INFO  [TOKENIZER] training
+	Epoch [9966/10000]
+	  Training lr: [0.001]
+	  Training loss: 0.46385763337214786
+	  Unused codebook:115.08333333333333
+	  Recosntruction loss: 0.2721148704489072
+	  Quantization loss: 0.19174275919795036
+	  Collision Rate: 0.06006678612151816
+
+Tue 18 Nov 2025 16:15:48 INFO  [TOKENIZER] training
+	Epoch [9967/10000]
+	  Training lr: [0.001]
+	  Training loss: 0.4638899664084117
+	  Unused codebook:116.16666666666667
+	  Recosntruction loss: 0.27208570887645084
+	  Quantization loss: 0.19180425629019737
+	  Collision Rate: 0.060596188304284086
+
+Tue 18 Nov 2025 16:15:49 INFO  [TOKENIZER] training
+	Epoch [9968/10000]
+	  Training lr: [0.001]
+	  Training loss: 0.4638765677809715
+	  Unused codebook:115.33333333333333
+	  Recosntruction loss: 0.27219540377457935
+	  Quantization loss: 0.1916811615228653
+	  Collision Rate: 0.06002606287669002
+
+Tue 18 Nov 2025 16:15:49 INFO  [TOKENIZER] training
+	Epoch [9969/10000]
+	  Training lr: [0.001]
+	  Training loss: 0.46391741931438446
+	  Unused codebook:115.5
+	  Recosntruction loss: 0.27216003090143204
+	  Quantization loss: 0.19175738468766212
+	  Collision Rate: 0.060840527773252974
+
+Tue 18 Nov 2025 16:15:50 INFO  [TOKENIZER] training
+	Epoch [9970/10000]
+	  Training lr: [0.001]
+	  Training loss: 0.46385009090105694
+	  Unused codebook:114.91666666666667
+	  Recosntruction loss: 0.272066334883372
+	  Quantization loss: 0.19178374856710434
+	  Collision Rate: 0.06092197426290927
+
+Tue 18 Nov 2025 16:15:50 INFO  [TOKENIZER] training
+	Epoch [9971/10000]
+	  Training lr: [0.001]
+	  Training loss: 0.46400950600703555
+	  Unused codebook:115.0
+	  Recosntruction loss: 0.27218130230903625
+	  Quantization loss: 0.19182819997270903
+	  Collision Rate: 0.06031112559048705
+
+Tue 18 Nov 2025 16:15:51 INFO  [TOKENIZER] training
+	Epoch [9972/10000]
+	  Training lr: [0.001]
+	  Training loss: 0.46402817964553833
+	  Unused codebook:115.41666666666667
+	  Recosntruction loss: 0.2722188929716746
+	  Quantization loss: 0.19180928046504656
+	  Collision Rate: 0.06104414399739371
+
+Tue 18 Nov 2025 16:15:51 INFO  [TOKENIZER] training
+	Epoch [9973/10000]
+	  Training lr: [0.001]
+	  Training loss: 0.46396517008543015
+	  Unused codebook:115.5
+	  Recosntruction loss: 0.27217088888088864
+	  Quantization loss: 0.1917942762374878
+	  Collision Rate: 0.06092197426290927
+
+Tue 18 Nov 2025 16:15:52 INFO  [TOKENIZER] training
+	Epoch [9974/10000]
+	  Training lr: [0.001]
+	  Training loss: 0.46398422370354336
+	  Unused codebook:115.5
+	  Recosntruction loss: 0.272155503431956
+	  Quantization loss: 0.19182871902982393
+	  Collision Rate: 0.060636911549112237
+
+Tue 18 Nov 2025 16:15:52 INFO  [TOKENIZER] training
+	Epoch [9975/10000]
+	  Training lr: [0.001]
+	  Training loss: 0.4639156361420949
+	  Unused codebook:115.5
+	  Recosntruction loss: 0.27211112280686695
+	  Quantization loss: 0.1918045108517011
+	  Collision Rate: 0.06031112559048705
+
+Tue 18 Nov 2025 16:15:53 INFO  [TOKENIZER] training
+	Epoch [9976/10000]
+	  Training lr: [0.001]
+	  Training loss: 0.46387934188048047
+	  Unused codebook:115.5
+	  Recosntruction loss: 0.27209775894880295
+	  Quantization loss: 0.1917815792063872
+	  Collision Rate: 0.06075908128359668
+
+Tue 18 Nov 2025 16:15:53 INFO  [TOKENIZER] training
+	Epoch [9977/10000]
+	  Training lr: [0.001]
+	  Training loss: 0.46389396488666534
+	  Unused codebook:114.91666666666667
+	  Recosntruction loss: 0.27211526532967883
+	  Quantization loss: 0.19177869831522307
+	  Collision Rate: 0.06067763479394038
+
+Tue 18 Nov 2025 16:15:53 INFO  [TOKENIZER] training
+	Epoch [9978/10000]
+	  Training lr: [0.001]
+	  Training loss: 0.46383652339378995
+	  Unused codebook:115.66666666666667
+	  Recosntruction loss: 0.2720453714330991
+	  Quantization loss: 0.19179114947716394
+	  Collision Rate: 0.05998533963186187
+
+Tue 18 Nov 2025 16:15:54 INFO  [TOKENIZER] training
+	Epoch [9979/10000]
+	  Training lr: [0.001]
+	  Training loss: 0.4637703125675519
+	  Unused codebook:115.0
+	  Recosntruction loss: 0.27197083582480747
+	  Quantization loss: 0.1917994742592176
+	  Collision Rate: 0.06014823261117446
+
+Tue 18 Nov 2025 16:15:55 INFO  [TOKENIZER] training
+	Epoch [9980/10000]
+	  Training lr: [0.001]
+	  Training loss: 0.46390436093012494
+	  Unused codebook:115.66666666666667
+	  Recosntruction loss: 0.27217429379622143
+	  Quantization loss: 0.19173006216684976
+	  Collision Rate: 0.05945593744909594
+
+Tue 18 Nov 2025 16:15:55 INFO  [TOKENIZER] training
+	Epoch [9981/10000]
+	  Training lr: [0.001]
+	  Training loss: 0.46367017179727554
+	  Unused codebook:115.75
+	  Recosntruction loss: 0.27196189512809116
+	  Quantization loss: 0.1917082779109478
+	  Collision Rate: 0.05998533963186187
+
+Tue 18 Nov 2025 16:15:56 INFO  [TOKENIZER] training
+	Epoch [9982/10000]
+	  Training lr: [0.001]
+	  Training loss: 0.46372559666633606
+	  Unused codebook:115.25
+	  Recosntruction loss: 0.271947239836057
+	  Quantization loss: 0.19177835807204247
+	  Collision Rate: 0.05994461638703372
+
+Tue 18 Nov 2025 16:15:56 INFO  [TOKENIZER] training
+	Epoch [9983/10000]
+	  Training lr: [0.001]
+	  Training loss: 0.4637397850553195
+	  Unused codebook:115.0
+	  Recosntruction loss: 0.2719862187902133
+	  Quantization loss: 0.19175356378157934
+	  Collision Rate: 0.05982244665254927
+
+Tue 18 Nov 2025 16:15:57 INFO  [TOKENIZER] training
+	Epoch [9984/10000]
+	  Training lr: [0.001]
+	  Training loss: 0.46377505362033844
+	  Unused codebook:115.83333333333333
+	  Recosntruction loss: 0.2720007821917534
+	  Quantization loss: 0.1917742701868216
+	  Collision Rate: 0.05978172340772113
+
+Tue 18 Nov 2025 16:15:57 INFO  [TOKENIZER] training
+	Epoch [9985/10000]
+	  Training lr: [0.001]
+	  Training loss: 0.46386878689130145
+	  Unused codebook:115.75
+	  Recosntruction loss: 0.27212142447630566
+	  Quantization loss: 0.19174735868970552
+	  Collision Rate: 0.059252321224955204
+
+Tue 18 Nov 2025 16:15:58 INFO  [TOKENIZER] training
+	Epoch [9986/10000]
+	  Training lr: [0.001]
+	  Training loss: 0.46388310194015503
+	  Unused codebook:115.0
+	  Recosntruction loss: 0.2720995669563611
+	  Quantization loss: 0.19178353374203047
+	  Collision Rate: 0.05860074930770484
+
+Tue 18 Nov 2025 16:15:58 INFO  [TOKENIZER] training
+	Epoch [9987/10000]
+	  Training lr: [0.001]
+	  Training loss: 0.463778518140316
+	  Unused codebook:115.5
+	  Recosntruction loss: 0.27201611548662186
+	  Quantization loss: 0.1917624001701673
+	  Collision Rate: 0.05892653526633002
+
+Tue 18 Nov 2025 16:15:59 INFO  [TOKENIZER] training
+	Epoch [9988/10000]
+	  Training lr: [0.001]
+	  Training loss: 0.46379391849040985
+	  Unused codebook:115.16666666666667
+	  Recosntruction loss: 0.27203522125879925
+	  Quantization loss: 0.19175869723161063
+	  Collision Rate: 0.05970027691806483
+
+Tue 18 Nov 2025 16:15:59 INFO  [TOKENIZER] training
+	Epoch [9989/10000]
+	  Training lr: [0.001]
+	  Training loss: 0.4640093147754669
+	  Unused codebook:115.5
+	  Recosntruction loss: 0.272225188712279
+	  Quantization loss: 0.19178412357966104
+	  Collision Rate: 0.05908942824564261
+
+Tue 18 Nov 2025 16:16:00 INFO  [TOKENIZER] training
+	Epoch [9990/10000]
+	  Training lr: [0.001]
+	  Training loss: 0.4639725511272748
+	  Unused codebook:115.58333333333333
+	  Recosntruction loss: 0.27216333399216336
+	  Quantization loss: 0.19180921465158463
+	  Collision Rate: 0.05908942824564261
+
+Tue 18 Nov 2025 16:16:00 INFO  [TOKENIZER] training
+	Epoch [9991/10000]
+	  Training lr: [0.001]
+	  Training loss: 0.4639187455177307
+	  Unused codebook:115.5
+	  Recosntruction loss: 0.27211612462997437
+	  Quantization loss: 0.1918026184042295
+	  Collision Rate: 0.059048705000814466
+
+Tue 18 Nov 2025 16:16:00 INFO  [TOKENIZER] training
+	Epoch [9992/10000]
+	  Training lr: [0.001]
+	  Training loss: 0.4638914118210475
+	  Unused codebook:115.16666666666667
+	  Recosntruction loss: 0.27206745743751526
+	  Quantization loss: 0.19182395562529564
+	  Collision Rate: 0.05876364228701743
+
+Tue 18 Nov 2025 16:16:01 INFO  [TOKENIZER] training
+	Epoch [9993/10000]
+	  Training lr: [0.001]
+	  Training loss: 0.4640128090977669
+	  Unused codebook:114.58333333333333
+	  Recosntruction loss: 0.27221551289161044
+	  Quantization loss: 0.191797294964393
+	  Collision Rate: 0.058967258511158166
+
+Tue 18 Nov 2025 16:16:01 INFO  [TOKENIZER] training
+	Epoch [9994/10000]
+	  Training lr: [0.001]
+	  Training loss: 0.46402131021022797
+	  Unused codebook:115.08333333333333
+	  Recosntruction loss: 0.2722212200363477
+	  Quantization loss: 0.19180008893211684
+	  Collision Rate: 0.05876364228701743
+
+Tue 18 Nov 2025 16:16:02 INFO  [TOKENIZER] training
+	Epoch [9995/10000]
+	  Training lr: [0.001]
+	  Training loss: 0.46396676699320477
+	  Unused codebook:114.83333333333333
+	  Recosntruction loss: 0.2721363653739293
+	  Quantization loss: 0.19183039789398512
+	  Collision Rate: 0.05823424010425151
+
+Tue 18 Nov 2025 16:16:02 INFO  [TOKENIZER] training
+	Epoch [9996/10000]
+	  Training lr: [0.001]
+	  Training loss: 0.4638849546511968
+	  Unused codebook:115.08333333333333
+	  Recosntruction loss: 0.2721104919910431
+	  Quantization loss: 0.19177445893486342
+	  Collision Rate: 0.05892653526633002
+
+Tue 18 Nov 2025 16:16:03 INFO  [TOKENIZER] training
+	Epoch [9997/10000]
+	  Training lr: [0.001]
+	  Training loss: 0.46387216448783875
+	  Unused codebook:115.66666666666667
+	  Recosntruction loss: 0.27210865914821625
+	  Quantization loss: 0.19176350285609564
+	  Collision Rate: 0.05884508877667372
+
+Tue 18 Nov 2025 16:16:03 INFO  [TOKENIZER] training
+	Epoch [9998/10000]
+	  Training lr: [0.001]
+	  Training loss: 0.46369784077008563
+	  Unused codebook:115.58333333333333
+	  Recosntruction loss: 0.27192895114421844
+	  Quantization loss: 0.19176888714234033
+	  Collision Rate: 0.05872291904218928
+
+Tue 18 Nov 2025 16:16:04 INFO  [TOKENIZER] training
+	Epoch [9999/10000]
+	  Training lr: [0.001]
+	  Training loss: 0.4638511265317599
+	  Unused codebook:115.33333333333333
+	  Recosntruction loss: 0.272061583896478
+	  Quantization loss: 0.19178954139351845
+	  Collision Rate: 0.059211597980127054
+
+Tue 18 Nov 2025 16:16:04 INFO  [TOKENIZER] training
+	Epoch [10000/10000]
+	  Training lr: [0.001]
+	  Training loss: 0.4638858536879222
+	  Unused codebook:115.16666666666667
+	  Recosntruction loss: 0.27204202363888424
+	  Quantization loss: 0.19184382756551108
+	  Collision Rate: 0.059048705000814466
+

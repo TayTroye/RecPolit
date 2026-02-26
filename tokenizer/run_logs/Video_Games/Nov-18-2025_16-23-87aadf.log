@@ -1,0 +1,50 @@
+Tue 18 Nov 2025 16:23:49 INFO  Device: cuda
+Tue 18 Nov 2025 16:23:49 INFO  Config: {'data_dir': '../datasets/Video_Games', 'log_dir': 'run_logs/', 'rand_seed': 2024, 'reproducibility': True, 'lr': 0.001, 'learner': 'adagrad', 'scheduler_type': 'constant', 'weight_decay': 0.0, 'warmup_steps': 0, 'batch_size': 2048, 'epochs': 10000, 'verbose_step': 1, 'verbose_delay': 9900, 'save_limit': 100, 'ckpt_name': 'rqvae', 'sent_emb_model': '/home/hadoop-ba-dealrank/VSCodeProjects/oukesha_oukesha/github.com/RUCAIBox/MTGRec.git/huggingface.co/sentence-transformers/sentence-t5-base', 'sent_emb_batch_size': 512, 'sent_emb_dim': 768, 'sent_emb_pca': 128, 'n_codebooks': 3, 'codebook_size': 256, 'hidden_sizes': [2048, 1024, 512, 256, 128], 'dropout': 0.0, 'beta': 0.25, 'vq_type': 'ema', 'run_local_time': 'Nov-18-2025_16-23', 'dataset': 'Video_Games', 'device': device(type='cuda'), 'use_ddp': False, 'accelerator': <accelerate.accelerator.Accelerator object at 0x7ff991b7f820>}
+Tue 18 Nov 2025 16:23:49 INFO  [TOKENIZER] Encoding sentence embeddings...
+Tue 18 Nov 2025 16:23:49 INFO  Use pytorch device_name: cuda:0
+Tue 18 Nov 2025 16:23:49 INFO  Load pretrained SentenceTransformer: /home/hadoop-ba-dealrank/VSCodeProjects/oukesha_oukesha/github.com/RUCAIBox/MTGRec.git/huggingface.co/sentence-transformers/sentence-t5-base
+Tue 18 Nov 2025 16:24:39 INFO  [TOKENIZER] Sentence embeddings shape: (25612, 128)
+Tue 18 Nov 2025 16:24:40 INFO  [TOKENIZER] Sentence embeddings shape after filtering: (25527, 128)
+Tue 18 Nov 2025 16:24:40 INFO  RQVAEModel(
+  (encoder): MLP(
+    (mlp): Sequential(
+      (0): Dropout(p=0.0, inplace=False)
+      (1): Linear(in_features=128, out_features=2048, bias=True)
+      (2): ReLU()
+      (3): Dropout(p=0.0, inplace=False)
+      (4): Linear(in_features=2048, out_features=1024, bias=True)
+      (5): ReLU()
+      (6): Dropout(p=0.0, inplace=False)
+      (7): Linear(in_features=1024, out_features=512, bias=True)
+      (8): ReLU()
+      (9): Dropout(p=0.0, inplace=False)
+      (10): Linear(in_features=512, out_features=256, bias=True)
+      (11): ReLU()
+      (12): Dropout(p=0.0, inplace=False)
+      (13): Linear(in_features=256, out_features=128, bias=True)
+    )
+  )
+  (quantization_layer): RQLayer(
+    (quantization_layers): ModuleList(
+      (0-2): 3 x EMAVQLayer()
+    )
+  )
+  (decoder): MLP(
+    (mlp): Sequential(
+      (0): Dropout(p=0.0, inplace=False)
+      (1): Linear(in_features=128, out_features=256, bias=True)
+      (2): ReLU()
+      (3): Dropout(p=0.0, inplace=False)
+      (4): Linear(in_features=256, out_features=512, bias=True)
+      (5): ReLU()
+      (6): Dropout(p=0.0, inplace=False)
+      (7): Linear(in_features=512, out_features=1024, bias=True)
+      (8): ReLU()
+      (9): Dropout(p=0.0, inplace=False)
+      (10): Linear(in_features=1024, out_features=2048, bias=True)
+      (11): ReLU()
+      (12): Dropout(p=0.0, inplace=False)
+      (13): Linear(in_features=2048, out_features=128, bias=True)
+    )
+  )
+)

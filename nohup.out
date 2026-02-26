@@ -1,0 +1,107 @@
+Traceback (most recent call last):
+  File "/home/sankuai/conda/envs/recbole/bin/accelerate", line 8, in <module>
+    sys.exit(main())
+  File "/home/sankuai/conda/envs/recbole/lib/python3.9/site-packages/accelerate/commands/accelerate_cli.py", line 50, in main
+    args.func(args)
+  File "/home/sankuai/conda/envs/recbole/lib/python3.9/site-packages/accelerate/commands/launch.py", line 1213, in launch_command
+    args, defaults, mp_from_config_flag = _validate_launch_command(args)
+  File "/home/sankuai/conda/envs/recbole/lib/python3.9/site-packages/accelerate/commands/launch.py", line 1157, in _validate_launch_command
+    or (torch.cuda.is_available() and torch.cuda.device_count() > 1)
+  File "/home/sankuai/conda/envs/recbole/lib/python3.9/site-packages/torch/cuda/__init__.py", line 182, in is_available
+    return torch._C._cuda_getDeviceCount() > 0
+KeyboardInterrupt
+The following values were not passed to `accelerate launch` and had defaults used instead:
+		More than one GPU was found, enabling multi-GPU training.
+		If this was unintended please pass in `--num_processes=1`.
+	`--num_machines` was set to a value of `1`
+	`--mixed_precision` was set to a value of `'no'`
+	`--dynamo_backend` was set to a value of `'no'`
+To avoid this warning pass in values for each of the problematic parameters or run `accelerate config`.
+/home/sankuai/conda/envs/recbole/lib/python3.9/site-packages/accelerate/utils/launch.py:238: UserWarning: Port `40010` is already in use. Accelerate will attempt to launch in a standalone-like mode by finding an open port automatically for this session. If this current attempt fails, or for more control in future runs, please specify a different port (e.g., `--main_process_port <your_chosen_port>`) or use `--main_process_port 0` for automatic selection in your launch command or Accelerate config file.
+  warnings.warn(
+W0122 21:19:30.334589 394788 site-packages/torch/distributed/elastic/agent/server/api.py:723] Received Signals.SIGINT death signal, shutting down workers
+W0122 21:19:30.459866 394788 site-packages/torch/distributed/elastic/multiprocessing/api.py:900] Sending process 395209 closing signal SIGINT
+W0122 21:19:30.460774 394788 site-packages/torch/distributed/elastic/multiprocessing/api.py:900] Sending process 395212 closing signal SIGINT
+W0122 21:19:30.461221 394788 site-packages/torch/distributed/elastic/multiprocessing/api.py:900] Sending process 395216 closing signal SIGINT
+W0122 21:19:30.461628 394788 site-packages/torch/distributed/elastic/multiprocessing/api.py:900] Sending process 395219 closing signal SIGINT
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/mnt/dolphinfs/hdd_pool/docker/user/hadoop-ba-dealrank/oukesha/oukesha_oukesha/github.com/RUCAIBox/MTGRecRL/start_rl_test.py", line 133, in <module>
+[rank0]:     config['accelerator'] = Accelerator()
+[rank0]:   File "/home/sankuai/conda/envs/recbole/lib/python3.9/site-packages/accelerate/accelerator.py", line 462, in __init__
+[rank0]:     self.state = AcceleratorState(
+[rank0]:   File "/home/sankuai/conda/envs/recbole/lib/python3.9/site-packages/accelerate/state.py", line 912, in __init__
+[rank0]:     PartialState(cpu, **kwargs)
+[rank0]:   File "/home/sankuai/conda/envs/recbole/lib/python3.9/site-packages/accelerate/state.py", line 301, in __init__
+[rank0]:     self.set_device()
+[rank0]:   File "/home/sankuai/conda/envs/recbole/lib/python3.9/site-packages/accelerate/state.py", line 838, in set_device
+[rank0]:     device_module.set_device(self.device)
+[rank0]:   File "/home/sankuai/conda/envs/recbole/lib/python3.9/site-packages/torch/cuda/__init__.py", line 569, in set_device
+[rank0]:     torch._C._cuda_setDevice(device)
+[rank0]: KeyboardInterrupt
+[rank1]: Traceback (most recent call last):
+[rank1]:   File "/mnt/dolphinfs/hdd_pool/docker/user/hadoop-ba-dealrank/oukesha/oukesha_oukesha/github.com/RUCAIBox/MTGRecRL/start_rl_test.py", line 133, in <module>
+[rank1]:     config['accelerator'] = Accelerator()
+[rank1]:   File "/home/sankuai/conda/envs/recbole/lib/python3.9/site-packages/accelerate/accelerator.py", line 462, in __init__
+[rank1]:     self.state = AcceleratorState(
+[rank1]:   File "/home/sankuai/conda/envs/recbole/lib/python3.9/site-packages/accelerate/state.py", line 912, in __init__
+[rank1]:     PartialState(cpu, **kwargs)
+[rank1]:   File "/home/sankuai/conda/envs/recbole/lib/python3.9/site-packages/accelerate/state.py", line 301, in __init__
+[rank1]:     self.set_device()
+[rank1]:   File "/home/sankuai/conda/envs/recbole/lib/python3.9/site-packages/accelerate/state.py", line 838, in set_device
+[rank1]:     device_module.set_device(self.device)
+[rank1]:   File "/home/sankuai/conda/envs/recbole/lib/python3.9/site-packages/torch/cuda/__init__.py", line 569, in set_device
+[rank1]:     torch._C._cuda_setDevice(device)
+[rank1]: KeyboardInterrupt
+[rank0]:[W122 21:19:30.781054622 ProcessGroupNCCL.cpp:1538] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())
+[rank2]: Traceback (most recent call last):
+[rank2]:   File "/mnt/dolphinfs/hdd_pool/docker/user/hadoop-ba-dealrank/oukesha/oukesha_oukesha/github.com/RUCAIBox/MTGRecRL/start_rl_test.py", line 133, in <module>
+[rank2]:     config['accelerator'] = Accelerator()
+[rank2]:   File "/home/sankuai/conda/envs/recbole/lib/python3.9/site-packages/accelerate/accelerator.py", line 462, in __init__
+[rank2]:     self.state = AcceleratorState(
+[rank2]:   File "/home/sankuai/conda/envs/recbole/lib/python3.9/site-packages/accelerate/state.py", line 912, in __init__
+[rank2]:     PartialState(cpu, **kwargs)
+[rank2]:   File "/home/sankuai/conda/envs/recbole/lib/python3.9/site-packages/accelerate/state.py", line 301, in __init__
+[rank2]:     self.set_device()
+[rank2]:   File "/home/sankuai/conda/envs/recbole/lib/python3.9/site-packages/accelerate/state.py", line 838, in set_device
+[rank2]:     device_module.set_device(self.device)
+[rank2]:   File "/home/sankuai/conda/envs/recbole/lib/python3.9/site-packages/torch/cuda/__init__.py", line 569, in set_device
+[rank2]:     torch._C._cuda_setDevice(device)
+[rank2]: KeyboardInterrupt
+[rank3]: Traceback (most recent call last):
+[rank3]:   File "/mnt/dolphinfs/hdd_pool/docker/user/hadoop-ba-dealrank/oukesha/oukesha_oukesha/github.com/RUCAIBox/MTGRecRL/start_rl_test.py", line 133, in <module>
+[rank3]:     config['accelerator'] = Accelerator()
+[rank3]:   File "/home/sankuai/conda/envs/recbole/lib/python3.9/site-packages/accelerate/accelerator.py", line 462, in __init__
+[rank3]:     self.state = AcceleratorState(
+[rank3]:   File "/home/sankuai/conda/envs/recbole/lib/python3.9/site-packages/accelerate/state.py", line 912, in __init__
+[rank3]:     PartialState(cpu, **kwargs)
+[rank3]:   File "/home/sankuai/conda/envs/recbole/lib/python3.9/site-packages/accelerate/state.py", line 301, in __init__
+[rank3]:     self.set_device()
+[rank3]:   File "/home/sankuai/conda/envs/recbole/lib/python3.9/site-packages/accelerate/state.py", line 838, in set_device
+[rank3]:     device_module.set_device(self.device)
+[rank3]:   File "/home/sankuai/conda/envs/recbole/lib/python3.9/site-packages/torch/cuda/__init__.py", line 569, in set_device
+[rank3]:     torch._C._cuda_setDevice(device)
+[rank3]: KeyboardInterrupt
+Traceback (most recent call last):
+  File "/home/sankuai/conda/envs/recbole/bin/accelerate", line 8, in <module>
+    sys.exit(main())
+  File "/home/sankuai/conda/envs/recbole/lib/python3.9/site-packages/accelerate/commands/accelerate_cli.py", line 50, in main
+    args.func(args)
+  File "/home/sankuai/conda/envs/recbole/lib/python3.9/site-packages/accelerate/commands/launch.py", line 1226, in launch_command
+    multi_gpu_launcher(args)
+  File "/home/sankuai/conda/envs/recbole/lib/python3.9/site-packages/accelerate/commands/launch.py", line 853, in multi_gpu_launcher
+    distrib_run.run(args)
+  File "/home/sankuai/conda/envs/recbole/lib/python3.9/site-packages/torch/distributed/run.py", line 892, in run
+    elastic_launch(
+  File "/home/sankuai/conda/envs/recbole/lib/python3.9/site-packages/torch/distributed/launcher/api.py", line 143, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+  File "/home/sankuai/conda/envs/recbole/lib/python3.9/site-packages/torch/distributed/launcher/api.py", line 268, in launch_agent
+    result = agent.run()
+  File "/home/sankuai/conda/envs/recbole/lib/python3.9/site-packages/torch/distributed/elastic/metrics/api.py", line 138, in wrapper
+    result = f(*args, **kwargs)
+  File "/home/sankuai/conda/envs/recbole/lib/python3.9/site-packages/torch/distributed/elastic/agent/server/api.py", line 715, in run
+    result = self._invoke_run(role)
+  File "/home/sankuai/conda/envs/recbole/lib/python3.9/site-packages/torch/distributed/elastic/agent/server/api.py", line 879, in _invoke_run
+    time.sleep(monitor_interval)
+  File "/home/sankuai/conda/envs/recbole/lib/python3.9/site-packages/torch/distributed/elastic/multiprocessing/api.py", line 84, in _terminate_process_handler
+    raise SignalException(f"Process {os.getpid()} got signal: {sigval}", sigval=sigval)
+torch.distributed.elastic.multiprocessing.api.SignalException: Process 394788 got signal: 2

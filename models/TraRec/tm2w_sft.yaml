@@ -1,0 +1,71 @@
+
+#用于dataset13的tmall数据
+
+rand_seed: 2024
+reproducibility: true
+
+num_proc: 1
+
+data_dir_file: "/xx/xx/data.parquet"
+
+id_map_file: "/xx/xx/id_mapping.json"
+
+log_file: "/xx/xx/.csv"
+
+data_dir: datasets/
+
+log_dir: run_logs/
+tensorboard_log_dir: tensorboard/
+ckpt_dir: ckpt/
+
+model_name : "TraRec"
+train_ratio : 0.1
+
+stage: "pretrain"
+sem_id_epoch: 9991
+
+# log_file: ""
+
+train_batch_size: 32  
+eval_batch_size: 32
+lr: 3e-3
+weight_decay: 0
+warmup_steps: 0
+steps: ~
+epochs: 1
+max_grad_norm: 1.0     
+eval_interval: 1        # Evaluate every n epochs
+save_interval: ~
+patience: 10  
+grad_accum_steps : 16          # Early stopping. Stop training after n epochs without improvement. Set to None to disable
+
+topk: [5,10]
+
+# topk: [50,100]
+metrics: [ndcg,recall]
+val_metric: ndcg@10   #
+val_ratio: 1.0
+val_delay: 0
+
+n_neg : 1024
+search_k : 40
+temperature_sample : 1.2  
+top_p_sample : 0.9  
+purchase_loss_weight: 5 
+
+# Config for T5
+max_item_seq_len: 100
+test_num_beams: 20      
+num_layers: 2
+num_decoder_layers: 2
+d_model: 64
+d_ff: 256
+num_heads: 2
+d_kv: 64
+dropout_rate: 0.1
+activation_function: "relu"
+feed_forward_proj: "relu"
+
+results_dir: ~
+
+
